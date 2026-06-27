@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Убежище: Психологический Хоррор</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+    <div id="main-menu" class="screen">
+        <h1>УБЕЖИЩЕ</h1>
+        <button id="btn-start">Новая игра</button>
+        <button id="btn-continue" style="display: none;">Продолжить</button>
+        <button id="btn-settings">Настройки</button>
+        <p class="hints">Управление: W,A,S,D - Ходьба | F - Фонарик | E - Взаимодействие | I/Tab - Инвентарь | Shift - Бег</p>
+    </div>
+
+    <div id="settings-menu" class="screen" style="display: none;">
+        <h2>Настройки</h2>
+        <div class="setting-group">
+            <label for="volume">Громкость звука:</label>
+            <input type="range" id="volume" min="0" max="1" step="0.1" value="0.5">
+        </div>
+        <div class="setting-group">
+            <label for="graphics">Качество графики (Тени):</label>
+            <select id="graphics">
+                <option value="low">Низкое</option>
+                <option value="medium" selected>Среднее</option>
+                <option value="high">Высокое</option>
+            </select>
+        </div>
+        <button id="btn-settings-back">Назад</button>
+    </div>
+
+    <div id="hud" style="display: none;">
+        <div id="crosshair"></div>
+        <div id="interact-prompt">Нажмите [E]</div>
+        <div class="battery-container">
+            <div id="battery-level"></div>
+        </div>
+        <div id="stamina-bar"></div>
+        <div id="note-display" style="display: none;">
+            <p id="note-text"></p>
+            <span>Нажмите [E] чтобы закрыть</span>
+        </div>
+        <div id="hide-overlay" style="display: none;">
+            Вы спрятались. Затаите дыхание. Нажмите [E] чтобы выйти.
+        </div>
+        <div id="save-indicator" style="display: none;">Прогресс сохранен...</div>
+    </div>
+
+    <div id="inventory-screen" class="screen" style="display: none; background: rgba(0,0,0,0.8);">
+        <h2>Инвентарь</h2>
+        <div id="inventory-items"></div>
+        <button id="btn-close-inv">Закрыть [I]</button>
+    </div>
+
+    <div id="game-over" class="screen" style="display: none;">
+        <h1 style="color: red;">ВЫ МЕРТВЫ</h1>
+        <p>Он нашел вас.</p>
+        <button id="btn-restart">Вернуться в меню</button>
+    </div>
+
+    <div id="victory-screen" class="screen" style="display: none;">
+        <h1 id="victory-title">Спасен?</h1>
+        <p id="victory-desc"></p>
+        <button id="btn-victory-menu">В главное меню</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
